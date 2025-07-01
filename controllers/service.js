@@ -38,3 +38,21 @@ export const deleteService = async (req, res) => {
     res.status(500).json({ message: "Error deleting service" });
   }
 };
+
+export const updateService = async (req, res) => {
+  try {
+    const updatedService = await Service.findByIdAndUpdate(
+      req.params.id,      // ID from route param
+      req.body,           // New data from request body
+      { new: true }       // Return the updated document
+    );
+
+    if (!updatedService) {
+      return res.status(404).json({ message: "Service not found" });
+    }
+
+    res.json(updatedService);
+  } catch (err) {
+    res.status(400).json({ message: "Error updating service" });
+  }
+};
