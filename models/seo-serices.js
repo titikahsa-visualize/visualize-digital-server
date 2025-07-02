@@ -13,7 +13,7 @@ const seoPackageSchema = new mongoose.Schema({
   priceType: {
     type: String,
     required: true,
-    enum: ['monthly', 'yearly', 'one-time']
+    enum: ['Monthly', 'Yearly', 'One-time']
   },
   cost: {
     type: Number,
