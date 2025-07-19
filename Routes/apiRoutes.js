@@ -46,7 +46,7 @@ import {
   createProject,
   updateProject,
   deleteProject,
-} from '../controllers/ProjectController.js';
+} from '../controllers/projectController.js';
 
 import { getPortfolio, updatePortfolio } from '../controllers/portfolioController.js';
 
