@@ -40,7 +40,29 @@ import {
   deleteTestimonial
 } from '../controllers/testimonialController.js';
 
+import {
+  getProjects,
+  getProjectById,
+  createProject,
+  updateProject,
+  deleteProject,
+} from '../controllers/ProjectController.js';
+
+import { getPortfolio, updatePortfolio } from '../controllers/portfolioController.js';
+
+
+import {
+  getProjectDetails,
+  updateProjectById,
+  deleteProjectById
+} from '../controllers/projectDetailController.js';
+
+
 const router = express.Router();
+
+
+
+
 router.get("/service/", getAllServices);
 router.post("/service/", createService);
 router.delete("/service/:id", deleteService);
@@ -75,5 +97,24 @@ router.get('/testimonials/:id', getTestimonialById);       // Fetch a single tes
 router.post('/testimonials', createTestimonial);           // Create a new testimonial
 router.put('/testimonials/:id', updateTestimonial);        // Update a testimonial by ID
 router.delete('/testimonials/:id', deleteTestimonial);
+
+
+
+router.get('/projects', getProjects);              // Fetch all projects
+router.get('/projects/:id', getProjectById);       // Fetch a single project by ID
+router.post('/projects', createProject);           // Create a new project
+router.put('/projects/:id', updateProject);        // Update a project by ID
+router.delete('/projects/:id', deleteProject);  
+
+
+router.get('/portfolio', getPortfolio);
+router.put('/portfolio/:id', updatePortfolio);
+
+
+router.get('/projectDetails/:id', getProjectDetails);
+router.put('/projectDetails/:id', updateProjectById);
+router.delete('/projectDetails/:id',deleteProjectById)
+
+
 
 export default router;
