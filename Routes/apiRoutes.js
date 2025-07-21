@@ -2,7 +2,6 @@
 import express from "express";
 import {
   getAllServices,
-  getServiceBySlug,
   updateService,
   createService,
   deleteService,
@@ -57,6 +56,7 @@ import {
   deleteProjectById
 } from '../controllers/projectDetailController.js';
 
+import { uploadMedia, getAllMedia, getFile, deleteMedia } from "../controllers/mediaController.js";
 
 const router = express.Router();
 
@@ -116,5 +116,9 @@ router.put('/projectDetails/:id', updateProjectById);
 router.delete('/projectDetails/:id',deleteProjectById)
 
 
+router.post('/service/media/upload', uploadMedia);
+router.get('/service/media', getAllMedia);
+router.get('/service/media/file/:filename', getFile);  
+router.delete('/service/media/:id', deleteMedia);
 
 export default router;
